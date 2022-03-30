@@ -2,24 +2,26 @@ const App = () => {
 
     return (
 
-        <
-        Template >
+
+
 
         <
-        h1 > Main content < /h1>
+        Template > <
+        h1 > Main Page < /h1> <
+        h2 > Time Check < /h2> < /Template >
 
-        <
-        /Template>
 
     );
 
 }
 
-ReactDOM.render(
+ReactDOM.render( < App / > , document.getElementById('root'));
 
-    <
-    App / > ,
+window.setInterval(() => {
+    ReactDOM.render( <
+        Clock / > ,
+        document.getElementById('root2')
+    );
+}, 1000);
 
-    document.getElementById('root')
-
-);
+ReactDOM.render( < Footer / > , document.getElementById('footerId'));

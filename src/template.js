@@ -3,18 +3,29 @@ const Navbar = () => {
     return (
 
         <
-        nav className = "navbar navbar-expand navbar-light bg-light" >
+        nav className = "navbar navbar-expand navbar-dark bg-dark" >
 
         <
         a className = "navbar-brand"
         href = "index.html" > Navbar < /a>
 
         <
-        div className = "collapse navbar-collapse"
+        div className = "collapse navbar-collapse d-flex justify-content-end"
         id = "navbarNav" >
 
         <
         ul className = "navbar-nav" >
+
+
+        <
+        li className = "nav-item" >
+
+        <
+        a className = "nav-link"
+        href = "index.html" > About < /a>
+
+        <
+        /li>
 
         <
         li className = "nav-item" >
@@ -62,10 +73,36 @@ var Sidebar = function Sidebar() {
 
 var Footer = function Footer() {
     return React.createElement(
-        "div", { className: "border-top p-2" },
+        "div", { className: "text-center border-top p-2" },
         "Template Demo ©️ 2022. "
     );
 };
+
+class Clock extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+                date: new Date(),
+                location: 'Cebu',
+            } // this is the component state property object
+    }
+    render() {
+        return ( <
+            div >
+            <
+            h2 className = "text-center" > { `The current time right now in ${this.state.location} is` } { this.state.date.toLocaleTimeString() }. < /h2></div >
+        )
+    }
+}
+
+/* const Clock = (props) => {
+    return ( <
+        div >
+        <
+        h2 className = "text-center" > The time right now is { props.date.toLocaleTimeString() }. < /h2> < /
+        div >
+    );
+} */
 
 var Template = function Template(props) {
     return React.createElement(
@@ -88,7 +125,6 @@ var Template = function Template(props) {
             ),
             " "
         ),
-        " ",
-        React.createElement(Footer, null)
+
     );
 };
