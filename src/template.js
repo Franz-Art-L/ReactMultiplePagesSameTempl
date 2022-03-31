@@ -71,6 +71,14 @@ var Sidebar = function Sidebar() {
     );
 };
 
+var Button = () => {
+    return ( <
+        div className = "text-center" > <
+        button className = "btn btn-outline-primary" > Sample Button < /button></div >
+
+    );
+};
+
 var Footer = function Footer() {
     return React.createElement(
         "div", { className: "text-center border-top p-2" },
@@ -86,11 +94,27 @@ class Clock extends React.Component {
                 location: 'Cebu',
             } // this is the component state property object
     }
+
+    componentDidMount() {
+        this.timer = setInterval(() => {
+            this.updateTime();
+        }, 1000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timer);
+    }
+
+    updateTime() {
+        this.setState({ date: new Date() });
+    }
+
     render() {
+        const { location, date } = this.state;
         return ( <
             div >
             <
-            h2 className = "text-center" > { `The current time right now in ${this.state.location} is` } { this.state.date.toLocaleTimeString() }. < /h2></div >
+            h2 className = "text-center" > { `The current time right now in ${location} is` } { date.toLocaleTimeString() }. < /h2></div >
         )
     }
 }

@@ -17,11 +17,12 @@ const App = () => {
 
 ReactDOM.render( < App / > , document.getElementById('root'));
 
-window.setInterval(() => {
-    ReactDOM.render( <
-        Clock / > ,
-        document.getElementById('root2')
-    );
-}, 1000);
+
+ReactDOM.render( <
+    Clock / > ,
+    document.getElementById('root2')
+);
+
+ReactDOM.render( < Button / > , document.getElementById('button1'));
 
 ReactDOM.render( < Footer / > , document.getElementById('footerId'));

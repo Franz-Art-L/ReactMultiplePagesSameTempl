@@ -26,4 +26,6 @@
 
  ReactDOM.render( < App / > , document.getElementById('root'));
 
+ ReactDOM.render( < Button / > , document.getElementById('button1'));
+
  ReactDOM.render( < Footer / > , document.getElementById('footerId'));

@@ -63,6 +63,19 @@ var Sidebar = function Sidebar() {
     return React.createElement("div", { className: "d-none d-md-block col-md-3" }, React.createElement("div", { className: "border border-primary py-4 px-3" }, "Sidebar "), " ");
 };
 
+var Button = function Button() {
+    return React.createElement(
+        "div",
+        { className: "text-center" },
+        " ",
+        React.createElement(
+            "button",
+            { className: "btn btn-outline-primary" },
+            " Sample Button "
+        )
+    );
+};
+
 var Footer = function Footer() {
     return React.createElement("div", { className: "text-center border-top p-2" }, "Template Demo ©️ 2022. ");
 };
@@ -82,8 +95,31 @@ var Clock = function (_React$Component) {
     }
 
     _createClass(Clock, [{
+        key: "componentDidMount",
+        value: function componentDidMount() {
+            var _this2 = this;
+
+            this.timer = setInterval(function () {
+                _this2.updateTime();
+            }, 1000);
+        }
+    }, {
+        key: "componentWillUnmount",
+        value: function componentWillUnmount() {
+            clearInterval(this.timer);
+        }
+    }, {
+        key: "updateTime",
+        value: function updateTime() {
+            this.setState({ date: new Date() });
+        }
+    }, {
         key: "render",
         value: function render() {
+            var _state = this.state,
+                location = _state.location,
+                date = _state.date;
+
             return React.createElement(
                 "div",
                 null,
@@ -91,9 +127,9 @@ var Clock = function (_React$Component) {
                     "h2",
                     { className: "text-center" },
                     " ",
-                    "The current time right now in " + this.state.location + " is",
+                    "The current time right now in " + location + " is",
                     " ",
-                    this.state.date.toLocaleTimeString(),
+                    date.toLocaleTimeString(),
                     ". "
                 )
             );
