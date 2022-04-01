@@ -87,68 +87,66 @@ var Footer = function Footer() {
 };
 
 class Clock extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-                date: new Date(),
-                location: 'Cebu',
-            } // this is the component state property object
-    }
+        constructor(props) {
+            super(props);
+            this.state = {
+                    date: new Date(),
+                    location: 'Cebu',
+                    temperature: '23',
+                    feelings: 'Feels Good!'
+                } // this is the component state property object
+        }
 
-    componentDidMount() {
-        this.timer = setInterval(() => {
-            this.updateTime();
-        }, 1000);
-    }
+        componentDidMount() {
+            this.timer = setInterval(() => {
+                this.updateTime();
+            }, 1000)
+        };
 
-    componentWillUnmount() {
-        clearInterval(this.timer);
-    }
+        componentWillUnmount() {
+            clearInterval(this.timer)
+        };
 
-    updateTime() {
-        this.setState({ date: new Date() });
-    }
+        updateTime() {
+            this.setState({ date: new Date() });
+        };
 
-    render() {
-        const { location, date } = this.state;
-        return ( <
-            div >
-            <
-            h2 className = "text-center" > { `The current time right now in ${location} is` } { date.toLocaleTimeString() }. < /h2></div >
-        )
-    }
-}
+        updateTemperature(temp) {
+            this.setState({ temperature: temp });
+        }
 
-/* const Clock = (props) => {
-    return ( <
-        div >
-        <
-        h2 className = "text-center" > The time right now is { props.date.toLocaleTimeString() }. < /h2> < /
-        div >
-    );
-} */
 
-var Template = function Template(props) {
-    return React.createElement(
-        React.Fragment,
-        null,
-        " ",
-        React.createElement(Navbar, null),
-        React.createElement(
-            "div", { className: "container py-4" },
-            React.createElement(
-                "div", { className: "row" },
+        render() {
+            const { location, date, feelings, temperature } = this.state;
+            return ( < div >
+                <
+                h2 className = "text-center" > { `The current time right now in ${location} is ${ date.toLocaleTimeString() }, and the current temperature is ${ temperature } and it $ { feelings }` }. < /h2></div >
+
+
+            )
+        }
+
+        const Template = (props) => {
+            return (
+                React.Fragment,
+                null,
+                " ",
+                React.createElement(Navbar, null),
                 React.createElement(
-                    "div", { className: "col-12 col-md-9" },
-                    " ",
-                    props.children,
+                    "div", { className: "container py-4" },
+                    React.createElement(
+                        "div", { className: "row" },
+                        React.createElement(
+                            "div", { className: "col-12 col-md-9" },
+                            " ",
+                            props.children,
+                            " "
+                        ),
+                        " ",
+                        React.createElement(Sidebar, null)
+                    ),
                     " "
                 ),
-                " ",
-                React.createElement(Sidebar, null)
-            ),
-            " "
-        ),
 
-    );
-};
+            );
+        }

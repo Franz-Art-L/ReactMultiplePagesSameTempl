@@ -90,7 +90,9 @@ var Clock = function (_React$Component) {
 
         _this.state = {
             date: new Date(),
-            location: 'Cebu' // this is the component state property object
+            location: 'Cebu',
+            temperature: 23,
+            feelings: 'Feels Good!' // this is the component state property object
         };return _this;
     }
 
@@ -118,7 +120,9 @@ var Clock = function (_React$Component) {
         value: function render() {
             var _state = this.state,
                 location = _state.location,
-                date = _state.date;
+                date = _state.date,
+                feelings = _state.feelings,
+                temperature = _state.temperature;
 
             return React.createElement(
                 "div",
@@ -130,8 +134,11 @@ var Clock = function (_React$Component) {
                     "The current time right now in " + location + " is",
                     " ",
                     date.toLocaleTimeString(),
+                    ", ",
+                    "and the current temperature is " + temperature + "\n            and \n            it " + feelings,
                     ". "
-                )
+                ),
+                " "
             );
         }
     }]);

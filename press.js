@@ -1,31 +1,36 @@
- const App = () => {
-     return ( <
-         Template >
-         <
-         h1 > Press page < /h1>  <
-         h3 > Time check < /h3> < /
-         Template >
-     );
- };
+const App = () => {
+
+    return (
 
 
 
- window.setInterval(() => {
 
-     ReactDOM.render(
+        <
+        Template > <
+        h1 > Press Page < /h1> <
+        h2 > Time Check < /h2> < /Template >
 
-         <
-         Clock date = { new Date() }
-         />,
 
-         document.getElementById('root2')
+    );
 
-     );
+}
 
- }, 1000);
 
- ReactDOM.render( < App / > , document.getElementById('root'));
 
- ReactDOM.render( < Button / > , document.getElementById('button1'));
+ReactDOM.render(
 
- ReactDOM.render( < Footer / > , document.getElementById('footerId'));
+    <
+    Clock /
+    >
+    ,
+
+    document.getElementById('root2')
+
+);
+
+
+ReactDOM.render( < App / > , document.getElementById('root'));
+
+ReactDOM.render( < Button / > , document.getElementById('button1'));
+
+ReactDOM.render( < Footer / > , document.getElementById('footerId'));
